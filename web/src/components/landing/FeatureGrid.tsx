@@ -1,5 +1,5 @@
 import { Zap, Shield, Globe, Cpu } from 'lucide-react';
-import { motion, Variants } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Section } from '../ui/section';
 import { Container } from '../ui/container';
 
