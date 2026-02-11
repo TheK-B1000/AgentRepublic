@@ -105,7 +105,7 @@ export function Hero() {
                                                 <span className="text-cyan-400">"cost"</span>: <span className="text-emerald-400">0.0042</span>
                                             </div>
                                             <span className="text-foreground/30">{'}'}</span>,
-                                            <span className="text-cyan-400">"output"</span>: <span className="text-foreground/30 text-wrap">"Layout engine upgrade complete. User satisfaction projected > 95%."</span>
+                                            <span className="text-cyan-400">"output"</span>: <span className="text-foreground/30 text-wrap">"Layout engine upgrade complete. User satisfaction projected &gt; 95%."</span>
                                         </div>
                                         <span className="text-foreground/30">{'}'}</span>
                                     </pre>
