@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { TraceFeed, type TraceLog } from './components/TraceFeed';
+import ShaderDemo from './pages/ShaderDemo';
+import { NotFound } from './components/ui/not-found-2';
 import { Route, Switch } from 'wouter';
 import { Bell, Command, Search, User, Gavel } from 'lucide-react';
 import './index.css';
@@ -161,6 +163,7 @@ export default function App() {
         <Header />
         <Switch>
           <Route path="/" component={MissionControl} />
+          <Route path="/demo" component={ShaderDemo} />
           <Route path="/chancellor">
             {() => <div className="p-10 text-2xl text-[var(--text-tertiary)]">Chancellor District: Restricted Access</div>}
           </Route>
@@ -168,7 +171,7 @@ export default function App() {
             {() => <div className="p-10 text-2xl text-[var(--text-tertiary)]">Foundry District: Restricted Access</div>}
           </Route>
           <Route>
-            {() => <div className="p-10 text-xl text-[var(--color-error)]">404: Sector Not Found</div>}
+            {() => <NotFound />}
           </Route>
         </Switch>
       </main>

@@ -1,57 +1,53 @@
+@import "tailwindcss";
+
 /* 
   ASCRIBE DESIGN PROFILE
   Theme: Cyberpunk / Crypto / Dark Mode
   Brand: Tiger Republic (Cyan + Orange)
 */
 
-:root {
+@theme {
   /* Brand Colors */
-  --color-primary: #00F0FF;     /* Neon Cyan */
-  --color-secondary: #FF8800;   /* Electric Orange */
-  --color-accent: #7000FF;      /* Deep Purple for accents */
-  
-  /* Usage Semantics */
+  --color-primary: #00F0FF;
+  --color-primary-foreground: #000000;
+  --color-secondary: #FF8800;
+  --color-secondary-foreground: #000000;
+  --color-accent: #7000FF;
+  --color-accent-foreground: #FFFFFF;
+
+  /* Semantic Colors */
   --color-success: #00FF9D;
   --color-warning: #FFB800;
   --color-error: #FF0055;
   --color-info: #00C2FF;
+  --color-destructive: #FF0055;
+  --color-muted: #1A1B2E;
+  --color-muted-foreground: #94A3B8;
 
-  /* Backgrounds (Void Theme) */
-  --bg-void: #050508;           /* Deepest black */
-  --bg-base: #0B0C15;           /* Main background */
-  --bg-surface: #13141F;        /* Card background */
-  --bg-surface-hover: #1A1B2E;  /* Interactive */
+  /* Backgrounds */
+  --color-background: #0B0C15;
+  --color-foreground: #FFFFFF;
 
-  /* Glassmorphism */
-  --glass-panel: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-blur: blur(12px);
-
-  /* Text */
-  --text-primary: #FFFFFF;
-  --text-secondary: #94A3B8;
-  --text-tertiary: #475569;
+  /* UI Surfaces */
+  --color-card: #13141F;
+  --color-card-foreground: #FFFFFF;
+  --color-popover: #13141F;
+  --color-popover-foreground: #FFFFFF;
+  --color-input: rgba(255, 255, 255, 0.08);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-ring: #00F0FF;
 
   /* Spacing */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-
-  /* Border Radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
-  --radius-full: 9999px;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Reset & Base */
+/* ---- Base Reset ---- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -59,19 +55,40 @@
 }
 
 body {
-  background-color: var(--bg-void);
-  color: var(--text-primary);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
-  overflow: hidden; /* App-like feel */
+  overflow: hidden;
 }
 
-/* Typography Utilities */
-h1, h2, h3, h4, h5, h6 {
+/* ---- Typography ---- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  color: var(--color-foreground);
+}
+
+/* ---- Glassmorphism Utilities ---- */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+}
+
+.glow-primary {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 20px rgba(255, 136, 0, 0.15);
 }
 
 .text-gradient-primary {
@@ -86,30 +103,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
 }
 
-/* Utility Classes */
-.glass-panel {
-  background: var(--glass-panel);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Glow Effects */
-.glow-primary {
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
-}
-
-.glow-secondary {
-  box-shadow: 0 0 20px rgba(255, 136, 0, 0.15);
-}
-
-/* Scrollbar */
+/* ---- Scrollbar ---- */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
