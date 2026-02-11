@@ -4,6 +4,8 @@ import { Hero } from '../components/landing/Hero';
 import { LogoBar } from '../components/landing/LogoBar';
 import { FeatureGrid } from '../components/landing/FeatureGrid';
 import { Districts } from '../components/landing/Districts';
+import { Showcase } from '../components/landing/Showcase';
+import { ArchitectureDiagram } from '../components/landing/ArchitectureDiagram';
 import { Testimonials } from '../components/landing/Testimonials';
 import { CommunitySection } from '../components/landing/CommunitySection';
 import { Footer } from '../components/landing/Footer';
@@ -18,6 +20,8 @@ export function LandingPage() {
                 <LogoBar />
                 <FeatureGrid />
                 <Districts />
+                <Showcase />
+                <ArchitectureDiagram />
                 <Testimonials />
                 <CommunitySection />
             </main>

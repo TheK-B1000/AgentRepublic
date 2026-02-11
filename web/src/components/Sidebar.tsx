@@ -1,6 +1,6 @@
 import { Home, Cpu, FlaskConical, Gavel, FileCode, Terminal, Settings } from 'lucide-react';
 import { useLocation, Link } from 'wouter';
-import clsx from 'clsx'; // Assuming clsx installed or I can just use template literals if not
+import clsx from 'clsx';
 
 interface SidebarItemProps {
     icon: React.ComponentType<{ className?: string }>;
@@ -34,12 +34,17 @@ const SidebarItem = ({ icon: Icon, label, href, active }: SidebarItemProps) => (
     </Link>
 );
 
-export function Sidebar() {
+interface SidebarProps {
+    open?: boolean;
+    setOpen?: (open: boolean) => void;
+}
+
+export function Sidebar({ open = true, setOpen }: SidebarProps) {
     const [location] = useLocation();
 
     const navItems = [
-        { icon: Home, label: 'Mission Control', href: '/' },
-        { icon: Gavel, label: 'Chancellor', href: '/chancellor' },
+        { icon: Home, label: 'Mission Control', href: '/dashboard' },
+        { icon: Gavel, label: 'Chancellor', href: '/chancellor' }, // These should probably be /dashboard/chancellor in future
         { icon: Cpu, label: 'Foundry', href: '/foundry' },
         { icon: FlaskConical, label: 'Research', href: '/research' },
         { icon: FileCode, label: 'Workshop', href: '/workshop' },
@@ -48,7 +53,10 @@ export function Sidebar() {
     ];
 
     return (
-        <div className="w-64 h-screen flex flex-col border-r border-[var(--glass-border)] bg-[rgba(11,12,21,0.8)] backdrop-blur-xl">
+        <div className={clsx(
+            "fixed lg:static inset-y-0 left-0 z-30 w-64 flex flex-col border-r border-[var(--glass-border)] bg-[rgba(11,12,21,0.95)] backdrop-blur-xl transition-transform duration-300 transform",
+            open ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        )}>
             {/* Brand Header */}
             <div className="p-6 border-b border-[var(--glass-border)]">
                 <div className="flex items-center gap-3">
