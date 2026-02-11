@@ -1,0 +1,37 @@
+{
+    "goldenTasks": [
+        {
+            "taskId": "ws-lp-001",
+            "name": "Simple SaaS Landing Page",
+            "description": "Build a minimal SaaS landing page with hero, features, and CTA sections.",
+            "agentId": "workshop.landing_page_builder",
+            "goal": "Build a responsive landing page for a project management SaaS tool called 'TaskFlow'. Include hero section with headline and CTA, features section with 3 feature cards, pricing section, and footer. Brand colors: #2563EB, #1E40AF, #FFFFFF.",
+            "expectedOutcome": "Complete HTML/CSS landing page with all required sections",
+            "rubricId": "workshop.landing_page.v3",
+            "timeoutSeconds": 300,
+            "costBudgetUsd": 2.0
+        },
+        {
+            "taskId": "ws-lp-002",
+            "name": "E-commerce Product Page",
+            "description": "Build a product landing page with image gallery, description, and purchase CTA.",
+            "agentId": "workshop.landing_page_builder",
+            "goal": "Build a product landing page for premium wireless headphones. Include product image hero, key specs list, customer reviews section, and 'Buy Now' CTA. Brand colors: #18181B, #F59E0B, #FAFAFA.",
+            "expectedOutcome": "Complete product page with responsive layout",
+            "rubricId": "workshop.landing_page.v3",
+            "timeoutSeconds": 300,
+            "costBudgetUsd": 2.0
+        },
+        {
+            "taskId": "ws-lp-003",
+            "name": "Portfolio Landing Page",
+            "description": "Build a creative portfolio page with project gallery.",
+            "agentId": "workshop.landing_page_builder",
+            "goal": "Build a portfolio landing page for a UI designer. Include about section, project gallery with 4 project cards, skills section, and contact form. Brand colors: #7C3AED, #A78BFA, #1F2937.",
+            "expectedOutcome": "Complete portfolio page with grid layout",
+            "rubricId": "workshop.landing_page.v3",
+            "timeoutSeconds": 300,
+            "costBudgetUsd": 2.0
+        }
+    ]
+}

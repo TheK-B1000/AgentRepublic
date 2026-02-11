@@ -1,0 +1,12 @@
+districtId: operations
+name: Operations
+description: "Monitoring — Alert routing, incident response, cost tracking."
+agents:
+  - operations.alert_router
+  - operations.incident_responder
+  - operations.cost_tracker
+toolAllowlist:
+  - run_code
+  - read_file
+  - write_file
+maxConcurrency: 3

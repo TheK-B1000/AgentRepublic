@@ -1,0 +1,15 @@
+{
+    "goldenTasks": [
+        {
+            "taskId": "fd-mt-001",
+            "name": "LoRA Fine-tune (Sentiment)",
+            "description": "Fine-tune a small model for sentiment classification.",
+            "agentId": "foundry.model_trainer",
+            "goal": "Configure and launch a LoRA fine-tuning run for sentiment classification on the SST-2 dataset. Use rank=8, alpha=16, learning_rate=2e-4, epochs=3.",
+            "expectedOutcome": "Training completes with accuracy >= 85% on validation split",
+            "rubricId": "foundry.model_eval.v1",
+            "timeoutSeconds": 600,
+            "costBudgetUsd": 5.0
+        }
+    ]
+}

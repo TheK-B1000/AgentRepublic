@@ -1,0 +1,15 @@
+{
+    "goldenTasks": [
+        {
+            "taskId": "rs-wq-001",
+            "name": "Factual Research Query",
+            "description": "Research a factual question with citations.",
+            "agentId": "research.web_researcher",
+            "goal": "Research: What are the key advantages of transformer architectures over RNNs for natural language processing? Provide at least 3 citations from reputable sources.",
+            "expectedOutcome": "Synthesis document with accurate facts and valid citations",
+            "rubricId": "research.accuracy.v1",
+            "timeoutSeconds": 300,
+            "costBudgetUsd": 2.0
+        }
+    ]
+}

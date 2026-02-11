@@ -1,0 +1,18 @@
+districtId: workshop
+name: Workshop
+description: "Apps + Websites — Build, preview, and ship web experiences."
+agents:
+  - workshop.landing_page_builder
+  - workshop.component_library_manager
+  - workshop.visual_qa_agent
+toolAllowlist:
+  - open_url
+  - click
+  - type
+  - screenshot
+  - extract_text
+  - run_code
+  - write_file
+  - read_file
+maxConcurrency: 5
+evalSuite: workshop.landing_page.golden_v3

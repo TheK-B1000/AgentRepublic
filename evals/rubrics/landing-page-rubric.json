@@ -1,0 +1,53 @@
+{
+    "rubricId": "workshop.landing_page.v3",
+    "task": "Build a landing page for a SaaS product",
+    "inputs": {
+        "brief": "Modern SaaS landing page",
+        "brand_colors": [
+            "#2563EB",
+            "#1E40AF",
+            "#FFFFFF"
+        ],
+        "required_sections": [
+            "hero",
+            "features",
+            "pricing",
+            "cta"
+        ]
+    },
+    "criteria": [
+        {
+            "name": "structure_completeness",
+            "weight": 0.25,
+            "passCondition": "All required sections present in correct order",
+            "scoring": "binary"
+        },
+        {
+            "name": "visual_fidelity",
+            "weight": 0.25,
+            "passCondition": "Brand colors used correctly, layout matches brief",
+            "scoring": "0-100 scale, pass >= 85"
+        },
+        {
+            "name": "responsiveness",
+            "weight": 0.20,
+            "passCondition": "Page renders correctly at 375px, 768px, 1440px",
+            "scoring": "binary per breakpoint"
+        },
+        {
+            "name": "performance",
+            "weight": 0.15,
+            "passCondition": "Lighthouse performance score >= 80",
+            "scoring": "numeric"
+        },
+        {
+            "name": "accessibility",
+            "weight": 0.15,
+            "passCondition": "No critical a11y violations",
+            "scoring": "count of violations, pass = 0 critical"
+        }
+    ],
+    "overallPass": "weighted_score >= 0.85",
+    "timeoutSeconds": 300,
+    "costBudgetUsd": 2.0
+}

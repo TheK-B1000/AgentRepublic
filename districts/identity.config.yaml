@@ -1,0 +1,12 @@
+districtId: identity
+name: Identity & Permissions
+description: "RBAC, Secrets, Approvals — Permission enforcement and credential management."
+agents:
+  - identity.permission_enforcer
+  - identity.secret_manager
+  - identity.approval_gateway
+toolAllowlist:
+  - read_file
+  - write_file
+  - run_code
+maxConcurrency: 2

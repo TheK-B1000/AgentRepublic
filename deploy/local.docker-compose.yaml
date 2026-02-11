@@ -1,0 +1,31 @@
+# Agent Republic — Local Deployment Configuration
+# Docker Compose for running the Republic on a single machine
+
+version: '3.9'
+
+services:
+  republic:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    environment:
+      - LLM_PROVIDER=mock
+      - TRACE_ENABLED=true
+      - TRACE_STORAGE_PATH=/app/traces
+      - NODE_ENV=development
+    volumes:
+      - ../traces:/app/traces
+      - ../agents:/app/agents:ro
+      - ../districts:/app/districts:ro
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  # Future: trace viewer UI
+  # trace-viewer:
+  #   build:
+  #     context: ../trace-viewer
+  #   ports:
+  #     - "3001:3001"
+  #   volumes:
+  #     - ../traces:/app/traces:ro

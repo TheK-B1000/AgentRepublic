@@ -1,0 +1,12 @@
+districtId: automation
+name: Automation
+description: "Jarvis Agents — Email, calendar, data pipelines."
+agents:
+  - automation.email_drafter
+  - automation.calendar_scheduler
+  - automation.data_pipeline_runner
+toolAllowlist:
+  - run_code
+  - read_file
+  - write_file
+maxConcurrency: 10

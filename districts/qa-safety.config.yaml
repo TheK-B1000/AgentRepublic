@@ -1,0 +1,15 @@
+districtId: qa-safety
+name: QA & Safety
+description: "Evals + Red Team — Golden tasks, adversarial testing, canary monitoring."
+agents:
+  - qa-safety.golden_task_runner
+  - qa-safety.red_team_agent
+  - qa-safety.canary_monitor
+toolAllowlist:
+  - run_code
+  - read_file
+  - write_file
+  - open_url
+  - screenshot
+  - extract_text
+maxConcurrency: 5

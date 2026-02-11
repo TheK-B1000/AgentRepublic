@@ -1,0 +1,34 @@
+{
+    "rubricId": "foundry.model_eval.v1",
+    "task": "Train and evaluate ML model",
+    "inputs": {},
+    "criteria": [
+        {
+            "name": "training_completion",
+            "weight": 0.30,
+            "passCondition": "Training completes without error",
+            "scoring": "binary"
+        },
+        {
+            "name": "metric_threshold",
+            "weight": 0.40,
+            "passCondition": "Model achieves >= 95% of baseline on eval slices",
+            "scoring": "numeric"
+        },
+        {
+            "name": "artifact_registration",
+            "weight": 0.15,
+            "passCondition": "Model registered with metadata and eval scores",
+            "scoring": "binary"
+        },
+        {
+            "name": "cost_efficiency",
+            "weight": 0.15,
+            "passCondition": "Training cost within budget",
+            "scoring": "numeric"
+        }
+    ],
+    "overallPass": "weighted_score >= 0.85",
+    "timeoutSeconds": 600,
+    "costBudgetUsd": 5.0
+}

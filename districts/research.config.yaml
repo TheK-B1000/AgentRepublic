@@ -1,0 +1,16 @@
+districtId: research
+name: Research
+description: "Browse + Synthesize — Web research, paper analysis, citation verification."
+agents:
+  - research.web_researcher
+  - research.paper_analyst
+  - research.citation_verifier
+toolAllowlist:
+  - open_url
+  - extract_text
+  - screenshot
+  - read_file
+  - write_file
+  - run_code
+maxConcurrency: 5
+evalSuite: research.web_query.golden_v1

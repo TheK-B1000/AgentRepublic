@@ -1,0 +1,34 @@
+{
+    "rubricId": "research.accuracy.v1",
+    "task": "Research and synthesize information with citations",
+    "inputs": {},
+    "criteria": [
+        {
+            "name": "factual_accuracy",
+            "weight": 0.35,
+            "passCondition": "All stated facts are correct",
+            "scoring": "0-100 scale, pass >= 95"
+        },
+        {
+            "name": "citation_validity",
+            "weight": 0.30,
+            "passCondition": "All citations resolve and match claims",
+            "scoring": "binary per citation"
+        },
+        {
+            "name": "synthesis_quality",
+            "weight": 0.20,
+            "passCondition": "Coherent, well-structured synthesis document",
+            "scoring": "0-100 scale"
+        },
+        {
+            "name": "completeness",
+            "weight": 0.15,
+            "passCondition": "All aspects of the query addressed",
+            "scoring": "binary"
+        }
+    ],
+    "overallPass": "weighted_score >= 0.85",
+    "timeoutSeconds": 300,
+    "costBudgetUsd": 2.0
+}

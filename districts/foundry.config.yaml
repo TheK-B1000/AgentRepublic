@@ -1,0 +1,13 @@
+districtId: foundry
+name: Foundry
+description: "AI Models — Train, evaluate, and register models."
+agents:
+  - foundry.model_trainer
+  - foundry.eval_runner
+  - foundry.model_registrar
+toolAllowlist:
+  - run_code
+  - read_file
+  - write_file
+maxConcurrency: 3
+evalSuite: foundry.model_training.golden_v1
