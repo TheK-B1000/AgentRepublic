@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Section } from '../ui/section';
+import { Container } from '../ui/container';
 
 // Simplified node positions for a connected graph look
 const nodes = [
@@ -27,49 +29,52 @@ export function ArchitectureDiagram() {
     const [hovered, setHovered] = useState<string | null>(null);
 
     return (
-        <section className="py-24 border-t border-white/[0.04] overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <Section className="border-t border-white/[0.04]">
+            <Container>
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
                     {/* Text Side */}
                     <div>
-                        <p className="text-xs font-semibold text-amber-400 uppercase tracking-[0.2em] mb-3">
+                        <p className="text-xs font-semibold text-amber-400 uppercase tracking-[0.2em] mb-4">
                             Topology
                         </p>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight mb-6">
-                            A living network of <br />
+                        <h2 className="text-fluid-h2 font-bold text-white tracking-tight leading-tight mb-8">
+                            A living network of <br className="hidden lg:block" />
                             specialized agents
                         </h2>
-                        <p className="text-foreground/60 text-lg leading-relaxed mb-8">
+                        <p className="text-fluid-p text-foreground/60 leading-relaxed mb-10">
                             The Republic isn't just a list of scripts. It's a connected graph where High Council agents orchestrate district specialists, who in turn command sub-agents.
                         </p>
-                        <ul className="space-y-4">
-                            <li className="flex items-start gap-3">
-                                <div className="mt-1 w-6 h-6 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold text-xs ring-1 ring-amber-500/20">1</div>
+                        <ul className="space-y-6">
+                            <li className="flex items-start gap-4 group">
+                                <div className="mt-1 w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 font-bold text-sm ring-1 ring-amber-500/20 group-hover:scale-110 transition-transform">1</div>
                                 <div>
-                                    <h4 className="font-semibold text-white">Central Government</h4>
-                                    <p className="text-sm text-foreground/50">Constitutional guardrails & resource allocation.</p>
+                                    <h4 className="font-bold text-white text-lg">Central Government</h4>
+                                    <p className="text-sm text-foreground/50 mt-1">Constitutional guardrails & resource allocation.</p>
                                 </div>
                             </li>
-                            <li className="flex items-start gap-3">
-                                <div className="mt-1 w-6 h-6 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 font-bold text-xs ring-1 ring-cyan-500/20">2</div>
+                            <li className="flex items-start gap-4 group">
+                                <div className="mt-1 w-8 h-8 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 font-bold text-sm ring-1 ring-cyan-500/20 group-hover:scale-110 transition-transform">2</div>
                                 <div>
-                                    <h4 className="font-semibold text-white">Districts</h4>
-                                    <p className="text-sm text-foreground/50">Specialized stacks for Dev, Ops, Research, Security.</p>
+                                    <h4 className="font-bold text-white text-lg">Districts</h4>
+                                    <p className="text-sm text-foreground/50 mt-1">Specialized stacks for Dev, Ops, Research, Security.</p>
                                 </div>
                             </li>
-                            <li className="flex items-start gap-3">
-                                <div className="mt-1 w-6 h-6 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 font-bold text-xs ring-1 ring-purple-500/20">3</div>
+                            <li className="flex items-start gap-4 group">
+                                <div className="mt-1 w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 font-bold text-sm ring-1 ring-purple-500/20 group-hover:scale-110 transition-transform">3</div>
                                 <div>
-                                    <h4 className="font-semibold text-white">Satellites</h4>
-                                    <p className="text-sm text-foreground/50">Task-specific runners (browsers, interpreters, shells).</p>
+                                    <h4 className="font-bold text-white text-lg">Satellites</h4>
+                                    <p className="text-sm text-foreground/50 mt-1">Task-specific runners (browsers, interpreters, shells).</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
                     {/* Diagram Side */}
-                    <div className="relative aspect-square max-w-lg mx-auto lg:ml-auto">
-                        <svg viewBox="0 0 800 600" className="w-full h-full drop-shadow-2xl">
+                    <div className="relative w-full max-w-lg mx-auto lg:ml-auto aspect-square">
+                        {/* Background Blob */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-amber-500/5 blur-[80px] rounded-full pointer-events-none mix-blend-screen" />
+
+                        <svg viewBox="0 0 800 600" className="w-full h-full drop-shadow-2xl relative z-10 transition-transform duration-500 hover:scale-[1.02]">
                             <defs>
                                 <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
                                     <feGaussianBlur stdDeviation="4" result="coloredBlur" />
@@ -85,15 +90,29 @@ export function ArchitectureDiagram() {
                                 const s = nodes.find(n => n.id === sourceId)!;
                                 const t = nodes.find(n => n.id === targetId)!;
                                 return (
-                                    <line
+                                    <motion-path
                                         key={`${sourceId}-${targetId}`}
-                                        x1={s.x} y1={s.y}
-                                        x2={t.x} y2={t.y}
-                                        stroke="rgba(255,255,255,0.1)"
+                                        d={`M${s.x},${s.y} L${t.x},${t.y}`}
+                                        stroke="rgba(255,255,255,0.08)"
                                         strokeWidth="2"
                                     />
                                 );
                             })}
+                            {/* Static lines as fallback if motion-path not used */}
+                            {links.map(([sourceId, targetId]) => {
+                                const s = nodes.find(n => n.id === sourceId)!;
+                                const t = nodes.find(n => n.id === targetId)!;
+                                return (
+                                    <line
+                                        key={`line-${sourceId}-${targetId}`}
+                                        x1={s.x} y1={s.y}
+                                        x2={t.x} y2={t.y}
+                                        stroke="rgba(255,255,255,0.08)"
+                                        strokeWidth="2"
+                                    />
+                                );
+                            })}
+
 
                             {/* Nodes */}
                             {nodes.map((node) => {
@@ -107,7 +126,7 @@ export function ArchitectureDiagram() {
                                         onMouseEnter={() => setHovered(node.id)}
                                         onMouseLeave={() => setHovered(null)}
                                         className="cursor-pointer transition-all duration-300"
-                                        style={{ transformOrigin: `${node.x}px ${node.y}px`, transform: isHovered ? 'scale(1.1)' : 'scale(1)' }}
+                                        style={{ transformOrigin: `${node.x}px ${node.y}px`, transform: isHovered ? 'scale(1.15)' : 'scale(1)' }}
                                     >
                                         {/* Pulse effect for core */}
                                         {isCore && (
@@ -122,7 +141,7 @@ export function ArchitectureDiagram() {
                                             cx={node.x}
                                             cy={node.y}
                                             r={node.r}
-                                            fill="#0A0B0F"
+                                            fill="#111318"
                                             stroke={color}
                                             strokeWidth={isHovered ? 3 : 1.5}
                                             filter={isHovered ? 'url(#glow)' : undefined}
@@ -138,6 +157,7 @@ export function ArchitectureDiagram() {
                                             textAnchor="middle"
                                             dominantBaseline="middle"
                                             pointerEvents="none"
+                                            style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}
                                         >
                                             {node.label}
                                         </text>
@@ -147,7 +167,7 @@ export function ArchitectureDiagram() {
                         </svg>
                     </div>
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 }

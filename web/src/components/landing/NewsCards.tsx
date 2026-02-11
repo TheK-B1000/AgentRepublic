@@ -1,4 +1,6 @@
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
+import { Section } from '../ui/section';
+import { Container } from '../ui/container';
 
 const news = [
     {
@@ -32,19 +34,19 @@ const news = [
 
 export function NewsCards() {
     return (
-        <section className="py-24 relative overflow-hidden">
+        <Section className="relative overflow-hidden">
             {/* Background Ambience */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-secondary)]/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="flex items-end justify-between mb-12">
+            <Container className="relative z-10">
+                <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
                     <div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Latest Transmissions</h2>
-                        <p className="text-[var(--text-secondary)] max-w-xl">
+                        <h2 className="text-fluid-h2 font-bold text-white mb-4">Latest Transmissions</h2>
+                        <p className="text-fluid-p text-foreground/60 max-w-xl">
                             Updates from the Republic core team, research findings, and community governance logs.
                         </p>
                     </div>
-                    <a href="#" className="hidden md:flex items-center gap-2 text-[var(--color-primary)] hover:text-white transition-colors text-sm font-medium group">
+                    <a href="#" className="hidden md:flex items-center gap-2 text-amber-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-wide group">
                         View Archive <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </div>
@@ -53,56 +55,56 @@ export function NewsCards() {
                     {news.map((item) => (
                         <article
                             key={item.id}
-                            className="group relative flex flex-col h-full bg-[var(--bg-surface)] border border-[var(--glass-border)] rounded-2xl overflow-hidden hover:border-[var(--color-primary)]/50 transition-colors duration-300"
+                            className="group relative flex flex-col h-full bg-[#111318] border border-white/[0.08] rounded-2xl overflow-hidden hover:border-amber-500/30 hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-300 transform hover:-translate-y-1"
                         >
                             {/* Image */}
-                            <div className="h-48 overflow-hidden relative">
-                                <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-surface)] to-transparent opacity-60 z-10" />
+                            <div className="h-56 overflow-hidden relative">
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#111318] to-transparent opacity-80 z-10" />
                                 <img
                                     src={item.image}
                                     alt={item.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                                 />
                                 <div className="absolute top-4 left-4 z-20">
-                                    <span className="px-2.5 py-1 text-xs font-medium bg-black/60 backdrop-blur border border-white/10 rounded-full text-white flex items-center gap-1.5">
-                                        <Tag className="w-3 h-3 text-[var(--color-primary)]" />
+                                    <span className="px-3 py-1 text-xs font-bold bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white flex items-center gap-1.5 shadow-lg">
+                                        <Tag className="w-3 h-3 text-amber-400" />
                                         {item.category}
                                     </span>
                                 </div>
                             </div>
 
                             {/* Content */}
-                            <div className="p-6 flex-1 flex flex-col">
-                                <div className="flex items-center gap-2 text-xs text-[var(--text-tertiary)] mb-3">
+                            <div className="p-8 flex-1 flex flex-col">
+                                <div className="flex items-center gap-2 text-xs font-medium text-foreground/40 mb-4 uppercase tracking-wider">
                                     <Calendar className="w-3.5 h-3.5" />
                                     {item.date}
                                 </div>
 
-                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[var(--color-primary)] transition-colors line-clamp-2">
+                                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors line-clamp-2 leading-tight">
                                     {item.title}
                                 </h3>
 
-                                <p className="text-sm text-[var(--text-secondary)] line-clamp-3 mb-6 flex-1">
+                                <p className="text-sm text-foreground/60 line-clamp-3 mb-8 flex-1 leading-relaxed">
                                     {item.excerpt}
                                 </p>
 
-                                <div className="mt-auto pt-4 border-t border-[var(--glass-border)] flex items-center justify-between">
-                                    <span className="text-sm font-medium text-white group-hover:underline decoration-[var(--color-primary)] underline-offset-4">
+                                <div className="mt-auto pt-6 border-t border-white/[0.06] flex items-center justify-between">
+                                    <span className="text-sm font-bold text-white group-hover:underline decoration-amber-500/50 underline-offset-4 decoration-2">
                                         Read Transmission
                                     </span>
-                                    <ArrowRight className="w-4 h-4 text-[var(--text-tertiary)] group-hover:text-[var(--color-primary)] group-hover:translate-x-1 transition-all" />
+                                    <ArrowRight className="w-4 h-4 text-foreground/40 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
                                 </div>
                             </div>
                         </article>
                     ))}
                 </div>
 
-                <div className="mt-8 md:hidden flex justify-center">
-                    <a href="#" className="flex items-center gap-2 text-[var(--color-primary)] hover:text-white transition-colors text-sm font-medium group">
+                <div className="mt-12 md:hidden flex justify-center">
+                    <a href="#" className="flex items-center gap-2 text-amber-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-wide group">
                         View Archive <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 }
