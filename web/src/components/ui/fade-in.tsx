@@ -43,7 +43,7 @@ export function FadeIn({
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={variants}
-            className={className}
+            className={`w-full ${className}`}
         >
             {children}
         </motion.div>

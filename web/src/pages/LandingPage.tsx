@@ -17,7 +17,7 @@ export function LandingPage() {
         <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
             <AnnouncementBar />
             <Navbar />
-            <main>
+            <main className="w-full flex flex-col">
                 <FadeIn direction="none" duration={0.8}>
                     <Hero />
                 </FadeIn>
