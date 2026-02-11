@@ -12,7 +12,7 @@ export function Section({ children, className, id, ...props }: SectionProps) {
         <section
             id={id}
             className={cn(
-                "relative py-16 sm:py-24 lg:py-32 overflow-hidden",
+                "relative w-full py-16 sm:py-24 lg:py-32 overflow-hidden flex-shrink-0",
                 className
             )}
             {...props}
