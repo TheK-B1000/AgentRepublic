@@ -29,3 +29,7 @@ export { Scratchpad } from './scratchpad.js';
 // Runtime
 export { agentRun, MockLLMProvider, MockToolExecutor } from './runtime.js';
 export type { LLMProvider, ToolExecutor, AgentRunOptions } from './runtime.js';
+
+// Claude LLM Provider
+export { ClaudeLLMProvider } from './claude-provider.js';
+

@@ -196,6 +196,8 @@ export interface PlanResult {
     goalComplete: boolean;
     confidence: number;
     reasoning: string;
+    tokenUsage?: { input: number; output: number };
+    costUsd?: number;
 }
 
 export interface VerificationResult {
@@ -203,6 +205,8 @@ export interface VerificationResult {
     goalComplete: boolean;
     reason: string;
     confidence: number;
+    tokenUsage?: { input: number; output: number };
+    costUsd?: number;
 }
 
 // ─── Constitution ────────────────────────────────────────────────────────

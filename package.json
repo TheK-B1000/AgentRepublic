@@ -1,6 +1,6 @@
 {
   "name": "agent-republic",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The Agent Republic — A production-grade city of specialized AI agents",
   "type": "module",
   "engines": {
@@ -12,12 +12,15 @@
     "test": "tsx foundation/smoke-test.ts && tsx tools/validate-registry.ts",
     "lint": "tsc --noEmit",
     "smoke": "tsx foundation/smoke-test.ts",
-    "validate-tools": "tsx tools/validate-registry.ts"
+    "validate-tools": "tsx tools/validate-registry.ts",
+    "integration": "tsx evals/integration-test.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "chalk": "^5.4.1",
+    "playwright": "^1.52.0",
     "uuid": "^11.1.0",
     "yaml": "^2.7.0"
   },

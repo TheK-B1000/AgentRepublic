@@ -222,8 +222,8 @@ export async function agentRun(options: AgentRunOptions): Promise<RunResult> {
                         confidence: currentPlan.confidence,
                     },
                     durationMs: Date.now() - planStart,
-                    tokenUsage: { input: 0, output: 0 }, // Real values from LLM provider
-                    costUsd: 0,
+                    tokenUsage: currentPlan.tokenUsage ?? { input: 0, output: 0 },
+                    costUsd: currentPlan.costUsd ?? 0,
                     status: 'OK',
                 });
 
@@ -353,8 +353,8 @@ export async function agentRun(options: AgentRunOptions): Promise<RunResult> {
                         confidence: verification.confidence,
                     },
                     durationMs: Date.now() - verifyStart,
-                    tokenUsage: { input: 0, output: 0 },
-                    costUsd: 0,
+                    tokenUsage: verification.tokenUsage ?? { input: 0, output: 0 },
+                    costUsd: verification.costUsd ?? 0,
                     status: verification.passed ? 'OK' : 'ERROR',
                 });
 

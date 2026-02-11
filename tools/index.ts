@@ -45,3 +45,10 @@ export type { WriteFileInput, WriteFileOutput } from './write-file.js';
 
 export { executePublishDeploy } from './publish-deploy.js';
 export type { PublishDeployInput, PublishDeployOutput } from './publish-deploy.js';
+
+// Browser Engine
+export { getBrowser, getPage, getContext, closeBrowser } from './browser-engine.js';
+export type { BrowserEngineOptions } from './browser-engine.js';
+
+// Live Executor
+export { LiveToolExecutor } from './live-executor.js';
