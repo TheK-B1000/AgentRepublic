@@ -1,0 +1,30 @@
+{
+  "name": "agent-republic",
+  "version": "0.1.0",
+  "description": "The Agent Republic — A production-grade city of specialized AI agents",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch foundation/smoke-test.ts",
+    "test": "tsx foundation/smoke-test.ts && tsx tools/validate-registry.ts",
+    "lint": "tsc --noEmit",
+    "smoke": "tsx foundation/smoke-test.ts",
+    "validate-tools": "tsx tools/validate-registry.ts"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "chalk": "^5.4.1",
+    "uuid": "^11.1.0",
+    "yaml": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "@types/uuid": "^10.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
