@@ -1,4 +1,0 @@
-{"type":"trace_start","runId":"run_0mlhd0aoy_f488467fab110c754c74327d","timestamp":"2026-02-11T01:36:53.028Z"}
-{"type":"span","agentId":"test_agent","action":"plan","input":{"test":true},"output":{"result":"ok"},"durationMs":42,"tokenUsage":{"input":100,"output":50},"costUsd":0.001,"status":"OK","runId":"run_0mlhd0aoy_f488467fab110c754c74327d","spanId":"span_ad3d8dd8","timestamp":"2026-02-11T01:36:53.029Z"}
-{"type":"event","runId":"run_0mlhd0aoy_f488467fab110c754c74327d","eventType":"smoke_test","data":{"phase":"testing"},"timestamp":"2026-02-11T01:36:53.030Z"}
-{"type":"trace_end","runId":"run_0mlhd0aoy_f488467fab110c754c74327d","finalStatus":"COMPLETE","durationMs":4,"spanCount":1,"eventCount":1,"timestamp":"2026-02-11T01:36:53.031Z"}

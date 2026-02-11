@@ -7,9 +7,14 @@ const PORT = 3001;
 const TRACE_DIR = join(process.cwd(), 'traces'); // Assuming run from project root
 
 const server = createServer(async (req, res) => {
-    // CORS for dev
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    // CORS — restrict to local dev origins only
+    const allowedOrigins = ['http://localhost:5173', 'http://localhost:3000'];
+    const origin = req.headers.origin || '';
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.setHeader('Access-Control-Max-Age', '86400');
 
     if (req.method === 'OPTIONS') {
         res.writeHead(204);
