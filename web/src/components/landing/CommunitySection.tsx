@@ -1,4 +1,6 @@
 import { ArrowRight, BookOpen, ScrollText, MessageSquare } from 'lucide-react';
+import { Section } from '../ui/section';
+import { Container } from '../ui/container';
 
 const actions = [
     {
@@ -32,13 +34,13 @@ const accentStyles: Record<string, { bg: string; text: string; border: string }>
 
 export function CommunitySection() {
     return (
-        <section className="py-24 border-t border-white/[0.04]">
-            <div className="max-w-7xl mx-auto px-6">
+        <Section className="border-t border-white/[0.04]">
+            <Container>
                 <div className="text-center mb-16">
-                    <p className="text-xs font-semibold text-amber-400 uppercase tracking-[0.2em] mb-3">
+                    <p className="text-xs font-semibold text-amber-400 uppercase tracking-[0.2em] mb-4">
                         Get Involved
                     </p>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                    <h2 className="text-fluid-h2 font-bold text-white tracking-tight leading-tight">
                         Start building today
                     </h2>
                 </div>
@@ -50,21 +52,21 @@ export function CommunitySection() {
                             <a
                                 key={a.title}
                                 href={a.href}
-                                className={`group glass-card p-8 flex flex-col transition-all duration-300 ${s.border}`}
+                                className={`group glass-card p-8 sm:p-10 flex flex-col transition-all duration-300 ${s.border} hover:-translate-y-1 hover:shadow-xl`}
                             >
-                                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${s.bg} ${s.text} mb-5`}>
+                                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${s.bg} ${s.text} mb-6 transition-transform group-hover:scale-110`}>
                                     {a.icon}
                                 </div>
-                                <h3 className="text-lg font-semibold text-white mb-2">{a.title}</h3>
-                                <p className="text-sm text-foreground/50 leading-relaxed mb-6 flex-1">{a.description}</p>
-                                <span className={`inline-flex items-center gap-1 text-sm font-medium ${s.text} group-hover:gap-2 transition-all`}>
+                                <h3 className="text-xl font-bold text-white mb-3">{a.title}</h3>
+                                <p className="text-sm text-foreground/60 leading-relaxed mb-8 flex-1">{a.description}</p>
+                                <span className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide ${s.text} group-hover:gap-3 transition-all`}>
                                     Learn more <ArrowRight className="w-4 h-4" />
                                 </span>
                             </a>
                         );
                     })}
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 }

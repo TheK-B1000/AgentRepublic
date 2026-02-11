@@ -1,3 +1,6 @@
+import { Section } from '../ui/section';
+import { Container } from '../ui/container';
+
 export function LogoBar() {
     const logos = [
         { name: 'TypeScript', svg: typescriptSvg },
@@ -9,8 +12,8 @@ export function LogoBar() {
     ];
 
     return (
-        <section className="border-y border-white/[0.04] py-10">
-            <div className="max-w-7xl mx-auto px-6">
+        <Section className="border-y border-white/[0.04] py-10">
+            <Container>
                 <p className="text-center text-xs font-medium text-foreground/30 uppercase tracking-[0.2em] mb-8">
                     Built with
                 </p>
@@ -18,7 +21,7 @@ export function LogoBar() {
                     {logos.map((logo) => (
                         <div
                             key={logo.name}
-                            className="flex items-center gap-2 text-foreground/25 hover:text-foreground/50 transition-colors duration-300"
+                            className="flex items-center gap-2 text-foreground/25 hover:text-foreground/50 transition-colors duration-300 placeholder-opacity-50 grayscale hover:grayscale-0"
                             title={logo.name}
                         >
                             <div className="w-6 h-6" dangerouslySetInnerHTML={{ __html: logo.svg }} />
@@ -26,8 +29,8 @@ export function LogoBar() {
                         </div>
                     ))}
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 }
 

@@ -1,3 +1,6 @@
+import { Section } from '../ui/section';
+import { Container } from '../ui/container';
+
 const quotes = [
     {
         text: 'A chatbot hopes. An agent verifies.',
@@ -24,33 +27,33 @@ const accentMap: Record<string, string> = {
 
 export function Testimonials() {
     return (
-        <section className="py-24 border-t border-white/[0.04]">
-            <div className="max-w-7xl mx-auto px-6">
+        <Section className="border-t border-white/[0.04]">
+            <Container>
                 <div className="text-center mb-16">
-                    <p className="text-xs font-semibold text-amber-400 uppercase tracking-[0.2em] mb-3">
+                    <p className="text-xs font-semibold text-amber-400 uppercase tracking-[0.2em] mb-4">
                         Design Philosophy
                     </p>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                    <h2 className="text-fluid-h2 font-bold text-white tracking-tight">
                         Principles we ship by
                     </h2>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-8">
                     {quotes.map((q) => (
                         <div
                             key={q.text}
-                            className={`glass-card p-8 flex flex-col justify-between border ${accentMap[q.accent]} transition-all duration-300`}
+                            className={`glass-card p-8 sm:p-10 flex flex-col justify-between border ${accentMap[q.accent]} transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:bg-white/[0.02]`}
                         >
-                            <blockquote className="text-xl sm:text-2xl font-semibold text-white leading-snug mb-6">
+                            <blockquote className="text-xl sm:text-2xl font-bold text-white leading-snug mb-8">
                                 "{q.text}"
                             </blockquote>
-                            <cite className="text-xs text-foreground/40 not-italic">
+                            <cite className="text-xs font-semibold text-foreground/50 not-italic uppercase tracking-wider">
                                 — {q.source}
                             </cite>
                         </div>
                     ))}
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 }
