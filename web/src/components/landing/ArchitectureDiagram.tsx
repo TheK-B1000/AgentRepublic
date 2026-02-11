@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Section } from '../ui/section';
 import { Container } from '../ui/container';
 
@@ -90,11 +91,14 @@ export function ArchitectureDiagram() {
                                 const s = nodes.find(n => n.id === sourceId)!;
                                 const t = nodes.find(n => n.id === targetId)!;
                                 return (
-                                    <motion-path
+                                    <motion.path
                                         key={`${sourceId}-${targetId}`}
                                         d={`M${s.x},${s.y} L${t.x},${t.y}`}
                                         stroke="rgba(255,255,255,0.08)"
                                         strokeWidth="2"
+                                        initial={{ pathLength: 0, opacity: 0 }}
+                                        animate={{ pathLength: 1, opacity: 1 }}
+                                        transition={{ duration: 1.5, ease: "easeInOut", delay: Math.random() * 0.5 }}
                                     />
                                 );
                             })}

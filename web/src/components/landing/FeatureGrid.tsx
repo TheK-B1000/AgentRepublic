@@ -1,5 +1,5 @@
 import { Zap, Shield, Globe, Cpu } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Section } from '../ui/section';
 import { Container } from '../ui/container';
 
@@ -46,7 +46,7 @@ export function FeatureGrid() {
         }
     };
 
-    const itemVariant = {
+    const itemVariant: Variants = {
         hidden: { opacity: 0, y: 20 },
         show: {
             opacity: 1,
