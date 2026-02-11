@@ -78,56 +78,52 @@ h6 {
   color: #FFFFFF;
 }
 
-/* ── Glass card ──────────────────────────────── */
+/* ── Typography: Fluid Scaling ───────────────── */
+.text-fluid-h1 {
+  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  /* 40px -> 72px */
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-fluid-h2 {
+  font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+  /* 32px -> 56px */
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-fluid-h3 {
+  font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem);
+  /* 24px -> 40px */
+  line-height: 1.2;
+}
+
+.text-fluid-p {
+  font-size: clamp(1rem, 1vw + 0.8rem, 1.25rem);
+  /* 16px -> 20px */
+  line-height: 1.6;
+}
+
+/* ── Glass card refined ──────────────────────── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .glass-card:hover {
-  border-color: rgba(245, 158, 11, 0.2);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* ── Glow accents ────────────────────────────── */
-.glow-amber {
-  box-shadow: 0 0 40px rgba(245, 158, 11, 0.08);
-}
-
-.glow-cyan {
-  box-shadow: 0 0 40px rgba(0, 212, 255, 0.08);
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #F59E0B 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ── Scrollbar ───────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* ── Utility: Edge fade for logo bar ─────────── */
 .edge-fade {
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }

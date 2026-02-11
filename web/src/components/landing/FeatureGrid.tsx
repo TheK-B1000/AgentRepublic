@@ -1,5 +1,7 @@
 import { Zap, Shield, Globe, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Section } from '../ui/section';
+import { Container } from '../ui/container';
 
 const features = [
     {
@@ -7,24 +9,28 @@ const features = [
         title: 'Instant Ephemerality',
         description: 'Spin up disposable browser contexts and execution environments in milliseconds. Zero cleanup required.',
         color: 'text-amber-400',
+        bg: 'bg-amber-400/10',
     },
     {
         icon: Shield,
         title: 'Sovereign Identity',
         description: 'Agents execute with cryptographically verifiable identities and localized storage. No central dependency.',
         color: 'text-cyan-400',
+        bg: 'bg-cyan-400/10',
     },
     {
         icon: Globe,
         title: 'Global Mesh',
         description: 'Orchestrate distributed fleets across regions. The Republic routing protocol handles latency and availability.',
         color: 'text-purple-400',
+        bg: 'bg-purple-400/10',
     },
     {
         icon: Cpu,
         title: 'Deterministic Runs',
         description: 'Replay any agent session bit-for-bit. Our ledger captures every input, network event, and random seed.',
         color: 'text-emerald-400',
+        bg: 'bg-emerald-400/10',
     }
 ];
 
@@ -34,27 +40,36 @@ export function FeatureGrid() {
         show: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1
+                staggerChildren: 0.1,
+                delayChildren: 0.2
             }
         }
     };
 
     const itemVariant = {
         hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0, transition: { type: "spring", bounce: 0.4 } }
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                bounce: 0.4,
+                duration: 0.8
+            }
+        }
     };
 
     return (
-        <section className="py-24 relative overflow-hidden">
+        <Section>
             {/* Background Elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--color-primary)]/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <Container className="relative z-10">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-                        The Infrastructure for <span className="text-[var(--color-primary)]">Autonomous Agency</span>
+                    <h2 className="text-fluid-h2 font-bold text-white mb-6 tracking-tight">
+                        The Infrastructure for <span className="text-gradient">Autonomous Agency</span>
                     </h2>
-                    <p className="text-lg text-[var(--text-secondary)]">
+                    <p className="text-fluid-p text-foreground/60 max-w-2xl mx-auto">
                         Agent Republic provides the primitives, protocols, and governance layers needed to scale AI fleets from prototypes to civilization-grade availability.
                     </p>
                 </div>
@@ -70,24 +85,24 @@ export function FeatureGrid() {
                         <motion.div
                             key={feature.title}
                             variants={itemVariant}
-                            className="glass-card p-6 hover:bg-white/[0.02] transition-colors group relative overflow-hidden"
+                            className="glass-card p-8 group relative overflow-hidden flex flex-col h-full"
                         >
-                            <div className={`absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-100 transition-opacity ${feature.color}`}>
-                                <feature.icon className="w-24 h-24 -mr-8 -mt-8 rotate-12" />
+                            <div className={`absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity duration-500 ${feature.color}`}>
+                                <feature.icon className="w-32 h-32 -mr-12 -mt-12 rotate-12" />
                             </div>
 
-                            <div className={`w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-4 ${feature.color} bg-opacity-10 group-hover:scale-110 transition-transform duration-300`}>
-                                <feature.icon className="w-6 h-6" />
+                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${feature.color} ${feature.bg} group-hover:scale-110 transition-transform duration-300`}>
+                                <feature.icon className="w-7 h-7" />
                             </div>
 
-                            <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
-                            <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                            <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                            <p className="text-sm text-foreground/60 leading-relaxed flex-grow">
                                 {feature.description}
                             </p>
                         </motion.div>
                     ))}
                 </motion.div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 }

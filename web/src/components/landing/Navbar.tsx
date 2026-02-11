@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Container } from '../ui/container';
 import {
     ChevronDown,
     Menu,
@@ -84,17 +85,17 @@ export function Navbar() {
     return (
         <nav
             className={`sticky top-0 z-40 transition-all duration-300 ${scrolled
-                    ? 'bg-[#0A0B0F]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20'
-                    : 'bg-transparent'
+                ? 'bg-[#0A0B0F]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20'
+                : 'bg-transparent'
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+            <Container className="flex items-center justify-between h-16">
                 {/* Logo */}
                 <a href="/" className="flex items-center gap-2.5 group">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-black font-black text-sm">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-black font-black text-sm shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition-all">
                         AR
                     </div>
-                    <span className="text-white font-bold text-lg tracking-tight hidden sm:block">
+                    <span className="text-white font-bold text-lg tracking-tight hidden sm:block group-hover:text-amber-400 transition-colors">
                         Agent Republic
                     </span>
                 </a>
@@ -108,15 +109,15 @@ export function Navbar() {
                             onMouseEnter={() => setOpenMenu(menu.label)}
                             onMouseLeave={() => setOpenMenu(null)}
                         >
-                            <button className="flex items-center gap-1 px-3 py-2 text-sm text-foreground/70 hover:text-white transition-colors rounded-md">
+                            <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground/70 hover:text-white transition-colors rounded-md group">
                                 {menu.label}
-                                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openMenu === menu.label ? 'rotate-180' : ''}`} />
+                                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === menu.label ? 'rotate-180 text-amber-400' : 'text-foreground/40 group-hover:text-amber-400'}`} />
                             </button>
 
                             {/* Dropdown */}
                             {openMenu === menu.label && (
                                 <div className="absolute top-full left-0 pt-2">
-                                    <div className="w-72 bg-[#111318] border border-white/[0.08] rounded-xl shadow-2xl shadow-black/40 p-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                                    <div className="w-72 bg-[#111318] border border-white/[0.08] rounded-xl shadow-2xl shadow-black/60 p-2 animate-in fade-in slide-in-from-top-2 duration-200">
                                         {menu.items.map((item) => (
                                             <a
                                                 key={item.label}
@@ -127,7 +128,7 @@ export function Navbar() {
                                                     {item.icon}
                                                 </div>
                                                 <div>
-                                                    <div className="text-sm font-medium text-white">{item.label}</div>
+                                                    <div className="text-sm font-medium text-white group-hover:text-amber-100 transition-colors">{item.label}</div>
                                                     <div className="text-xs text-foreground/50">{item.desc}</div>
                                                 </div>
                                             </a>
@@ -145,10 +146,10 @@ export function Navbar() {
                         href="https://github.com/TheK-B1000/AgentRepublic"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground/70 border border-white/[0.1] rounded-lg hover:border-white/20 hover:text-white transition-all"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-foreground/70 border border-white/[0.1] rounded-lg hover:border-white/20 hover:text-white transition-all hover:bg-white/[0.03]"
                     >
                         <Star className="w-4 h-4" />
-                        Star on GitHub
+                        Star
                     </a>
                     <a
                         href="/get-started"
@@ -165,11 +166,11 @@ export function Navbar() {
                 >
                     {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </button>
-            </div>
+            </Container>
 
             {/* Mobile Menu */}
             {mobileOpen && (
-                <div className="lg:hidden bg-[#111318] border-t border-white/[0.06] px-6 py-4 space-y-4 max-h-[80vh] overflow-y-auto">
+                <div className="lg:hidden bg-[#111318] border-t border-white/[0.06] px-6 py-4 space-y-4 max-h-[80vh] overflow-y-auto animate-in fade-in slide-in-from-top-2">
                     {menus.map((menu) => (
                         <div key={menu.label}>
                             <div className="text-xs font-semibold text-foreground/40 uppercase tracking-wider mb-2">
