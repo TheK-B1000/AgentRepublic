@@ -52,7 +52,7 @@ export function FeatureGrid() {
             opacity: 1,
             y: 0,
             transition: {
-                type: "spring",
+                type: "spring" as const,
                 bounce: 0.4,
                 duration: 0.8
             }
