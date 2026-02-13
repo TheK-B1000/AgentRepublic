@@ -4,15 +4,15 @@ import { Section } from '../ui/section';
 
 export function Hero() {
     return (
-        <Section className="pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20">
+        <Section className="pt-28 pb-14 lg:pt-40 lg:pb-24">
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-12 left-[12%] w-[32rem] h-[32rem] bg-sky-400/15 rounded-full blur-[140px]" />
                 <div className="absolute top-20 right-[5%] w-[24rem] h-[24rem] bg-indigo-400/20 rounded-full blur-[120px]" />
             </div>
 
             <Container>
-                <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-10 lg:gap-14 items-center">
-                    <div className="w-full max-w-3xl">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div className="max-w-2xl">
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-300/30 bg-sky-400/10 mb-7 backdrop-blur-sm">
                             <span className="w-1.5 h-1.5 rounded-full bg-cyan-300 animate-pulse" />
                             <span className="text-xs font-medium text-sky-100/95 tracking-wide">Now live — secure autonomous infrastructure</span>
@@ -65,8 +65,8 @@ export function Hero() {
                         </div>
                     </div>
 
-                    <div className="relative hidden lg:flex justify-end w-full lg:min-h-[420px]">
-                        <div className="relative w-full max-w-2xl rounded-3xl border border-slate-300/20 bg-slate-950/80 backdrop-blur-xl p-1.5 shadow-2xl shadow-sky-500/10 self-center">
+                    <div className="relative hidden lg:block">
+                        <div className="relative rounded-3xl border border-slate-300/20 bg-slate-950/80 backdrop-blur-xl p-1.5 shadow-2xl shadow-sky-500/10">
                             <div className="rounded-2xl overflow-hidden bg-[#020617]">
                                 <div className="p-5 font-mono text-xs leading-relaxed overflow-x-auto text-slate-200">
                                     <div className="flex items-center gap-2 mb-4 border-b border-slate-500/20 pb-3">

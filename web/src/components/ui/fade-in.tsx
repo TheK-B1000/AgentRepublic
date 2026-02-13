@@ -18,13 +18,23 @@ export function FadeIn({
 }: FadeInProps) {
     const prefersReducedMotion = useReducedMotion();
 
-    const initialAnimation = direction === 'none'
-        ? { opacity: 1, y: 0, x: 0 }
-        : {
-            opacity: 0,
-            y: direction === 'up' ? 24 : direction === 'down' ? -24 : 0,
-            x: direction === 'left' ? 24 : direction === 'right' ? -24 : 0,
-        };
+    const variants = {
+        hidden: {
+            opacity: 1,
+            y: 0,
+            x: 0,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            transition: {
+                duration,
+                delay,
+                ease: [0.25, 0.4, 0.25, 1] as const, // Ease out cubic
+            },
+        },
+    };
 
     return (
         <motion.div
