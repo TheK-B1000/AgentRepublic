@@ -30,7 +30,7 @@ export function ArchitectureDiagram() {
     const [hovered, setHovered] = useState<string | null>(null);
 
     return (
-        <Section className="border-t border-white/[0.04]">
+        <Section id="architecture" className="border-t border-white/[0.04]">
             <Container>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     {/* Text Side */}
