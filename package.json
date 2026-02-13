@@ -1,7 +1,7 @@
 {
   "name": "agent-republic",
   "version": "0.2.0",
-  "description": "The Agent Republic — A production-grade city of specialized AI agents",
+  "description": "The Agent Republic \u2014 A production-grade city of specialized AI agents",
   "type": "module",
   "engines": {
     "node": ">=20.0.0"
@@ -13,7 +13,8 @@
     "lint": "tsc --noEmit",
     "smoke": "tsx foundation/smoke-test.ts",
     "validate-tools": "tsx tools/validate-registry.ts",
-    "integration": "tsx evals/integration-test.ts"
+    "integration": "tsx evals/integration-test.ts",
+    "test:web-smoke": "python tests/landing_smoke.py"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.52.0",
