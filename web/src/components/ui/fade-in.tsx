@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 
 interface FadeInProps {
-    children: React.ReactNode;
+    children: ReactNode;
     delay?: number;
     duration?: number;
     direction?: 'up' | 'down' | 'left' | 'right' | 'none';
@@ -15,7 +16,7 @@ export function FadeIn({
     direction = 'up',
     className = ''
 }: FadeInProps) {
-    const initial = direction === 'none'
+    const initialAnimation = direction === 'none'
         ? { opacity: 1, y: 0, x: 0 }
         : {
             opacity: 0,
@@ -25,7 +26,7 @@ export function FadeIn({
 
     return (
         <motion.div
-            initial={initial}
+            initial={initialAnimation}
             animate={{ opacity: 1, x: 0, y: 0 }}
             transition={{
                 duration,
