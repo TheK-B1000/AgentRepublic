@@ -37,36 +37,36 @@ const menus: DropdownMenu[] = [
     {
         label: 'Discover',
         items: [
-            { label: 'About the Republic', href: '/about', icon: <Compass className="w-4 h-4" />, desc: 'What we\'re building & why' },
-            { label: 'The Charter', href: '/charter', icon: <ScrollText className="w-4 h-4" />, desc: 'Core principles & handbook' },
-            { label: 'Architecture', href: '/architecture', icon: <Map className="w-4 h-4" />, desc: 'How it all fits together' },
-            { label: 'Roadmap', href: '/roadmap', icon: <Rocket className="w-4 h-4" />, desc: 'What\'s next' },
+            { label: 'About the Republic', href: '#features', icon: <Compass className="w-4 h-4" />, desc: 'What we\'re building & why' },
+            { label: 'The Charter', href: '#districts', icon: <ScrollText className="w-4 h-4" />, desc: 'Core principles & handbook' },
+            { label: 'Architecture', href: '#architecture', icon: <Map className="w-4 h-4" />, desc: 'How it all fits together' },
+            { label: 'Roadmap', href: '#news', icon: <Rocket className="w-4 h-4" />, desc: 'What\'s next' },
         ],
     },
     {
         label: 'Build',
         items: [
-            { label: 'Get Started', href: '/get-started', icon: <BookOpen className="w-4 h-4" />, desc: 'Quickstart in 5 min' },
-            { label: 'Documentation', href: '/docs', icon: <FileCode2 className="w-4 h-4" />, desc: 'Full API & guides' },
+            { label: 'Get Started', href: '/dashboard', icon: <BookOpen className="w-4 h-4" />, desc: 'Quickstart in 5 min' },
+            { label: 'Documentation', href: '/traces', icon: <FileCode2 className="w-4 h-4" />, desc: 'Full API & guides' },
             { label: 'GitHub', href: 'https://github.com/TheK-B1000/AgentRepublic', icon: <Github className="w-4 h-4" />, desc: 'Source code & issues' },
-            { label: 'Agent Templates', href: '/templates', icon: <FlaskConical className="w-4 h-4" />, desc: 'Pre-built agent blueprints' },
+            { label: 'Agent Templates', href: '/demo', icon: <FlaskConical className="w-4 h-4" />, desc: 'Pre-built agent blueprints' },
         ],
     },
     {
         label: 'Govern',
         items: [
-            { label: 'Constitution', href: '/constitution', icon: <Scale className="w-4 h-4" />, desc: 'Rules agents live by' },
-            { label: 'District Specs', href: '/districts', icon: <Shield className="w-4 h-4" />, desc: 'Domain-specific mandates' },
-            { label: 'Eval Framework', href: '/evals', icon: <FlaskConical className="w-4 h-4" />, desc: 'Testing & validation' },
-            { label: 'Security', href: '/security', icon: <Lock className="w-4 h-4" />, desc: 'Safety & access control' },
+            { label: 'Constitution', href: '/dashboard', icon: <Scale className="w-4 h-4" />, desc: 'Rules agents live by' },
+            { label: 'District Specs', href: '#districts', icon: <Shield className="w-4 h-4" />, desc: 'Domain-specific mandates' },
+            { label: 'Eval Framework', href: '/traces', icon: <FlaskConical className="w-4 h-4" />, desc: 'Testing & validation' },
+            { label: 'Security', href: '/dashboard', icon: <Lock className="w-4 h-4" />, desc: 'Safety & access control' },
         ],
     },
     {
         label: 'Community',
         items: [
-            { label: 'Discord', href: '#', icon: <MessageSquare className="w-4 h-4" />, desc: 'Join the conversation' },
-            { label: 'Changelog', href: '/changelog', icon: <Newspaper className="w-4 h-4" />, desc: 'What\'s new' },
-            { label: 'Contributing', href: '/contributing', icon: <Users className="w-4 h-4" />, desc: 'Help build the Republic' },
+            { label: 'Discord', href: 'https://discord.com', icon: <MessageSquare className="w-4 h-4" />, desc: 'Join the conversation' },
+            { label: 'Changelog', href: '#news', icon: <Newspaper className="w-4 h-4" />, desc: 'What\'s new' },
+            { label: 'Contributing', href: '#community', icon: <Users className="w-4 h-4" />, desc: 'Help build the Republic' },
         ],
     },
 ];
@@ -85,17 +85,17 @@ export function Navbar() {
     return (
         <nav
             className={`sticky top-0 z-40 transition-all duration-300 ${scrolled
-                ? 'bg-[#0A0B0F]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20'
+                ? 'bg-[#020617]/80 backdrop-blur-xl border-b border-slate-300/[0.14] shadow-lg shadow-black/30'
                 : 'bg-transparent'
                 }`}
         >
             <Container className="flex items-center justify-between h-16">
                 {/* Logo */}
                 <a href="/" className="flex items-center gap-2.5 group">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-black font-black text-sm shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition-all">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-300 to-blue-500 flex items-center justify-center text-slate-950 font-black text-sm shadow-lg shadow-sky-400/20 group-hover:shadow-sky-300/40 transition-all">
                         AR
                     </div>
-                    <span className="text-white font-bold text-lg tracking-tight hidden sm:block group-hover:text-amber-400 transition-colors">
+                    <span className="text-white font-bold text-lg tracking-tight hidden sm:block group-hover:text-sky-300 transition-colors">
                         Agent Republic
                     </span>
                 </a>
@@ -111,24 +111,24 @@ export function Navbar() {
                         >
                             <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground/70 hover:text-white transition-colors rounded-md group">
                                 {menu.label}
-                                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === menu.label ? 'rotate-180 text-amber-400' : 'text-foreground/40 group-hover:text-amber-400'}`} />
+                                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openMenu === menu.label ? 'rotate-180 text-sky-300' : 'text-foreground/40 group-hover:text-sky-300'}`} />
                             </button>
 
                             {/* Dropdown */}
                             {openMenu === menu.label && (
                                 <div className="absolute top-full left-0 pt-2">
-                                    <div className="w-72 bg-[#111318] border border-white/[0.08] rounded-xl shadow-2xl shadow-black/60 p-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                                    <div className="w-72 bg-[#0b1220] border border-slate-300/[0.18] rounded-xl shadow-2xl shadow-black/60 p-2 animate-in fade-in slide-in-from-top-2 duration-200">
                                         {menu.items.map((item) => (
                                             <a
                                                 key={item.label}
                                                 href={item.href}
                                                 className="flex items-start gap-3 px-3 py-2.5 rounded-lg hover:bg-white/[0.04] transition-colors group"
                                             >
-                                                <div className="mt-0.5 text-foreground/40 group-hover:text-amber-400 transition-colors">
+                                                <div className="mt-0.5 text-foreground/40 group-hover:text-sky-300 transition-colors">
                                                     {item.icon}
                                                 </div>
                                                 <div>
-                                                    <div className="text-sm font-medium text-white group-hover:text-amber-100 transition-colors">{item.label}</div>
+                                                    <div className="text-sm font-medium text-white group-hover:text-sky-100 transition-colors">{item.label}</div>
                                                     <div className="text-xs text-foreground/50">{item.desc}</div>
                                                 </div>
                                             </a>
@@ -152,8 +152,8 @@ export function Navbar() {
                         Star
                     </a>
                     <a
-                        href="/get-started"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-amber-500 text-black rounded-lg hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20"
+                        href="/dashboard"
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-sky-300 text-slate-950 rounded-lg hover:bg-sky-200 transition-colors shadow-lg shadow-sky-300/20"
                     >
                         Get Started
                     </a>
@@ -170,7 +170,7 @@ export function Navbar() {
 
             {/* Mobile Menu */}
             {mobileOpen && (
-                <div className="lg:hidden bg-[#111318] border-t border-white/[0.06] px-6 py-4 space-y-4 max-h-[80vh] overflow-y-auto animate-in fade-in slide-in-from-top-2">
+                <div className="lg:hidden bg-[#0b1220] border-t border-slate-300/[0.14] px-6 py-4 space-y-4 max-h-[80vh] overflow-y-auto animate-in fade-in slide-in-from-top-2">
                     {menus.map((menu) => (
                         <div key={menu.label}>
                             <div className="text-xs font-semibold text-foreground/40 uppercase tracking-wider mb-2">
@@ -195,7 +195,7 @@ export function Navbar() {
                         <a href="https://github.com/TheK-B1000/AgentRepublic" className="block w-full text-center px-4 py-2 text-sm font-medium border border-white/[0.1] rounded-lg text-foreground/70">
                             Star on GitHub
                         </a>
-                        <a href="/get-started" className="block w-full text-center px-4 py-2 text-sm font-semibold bg-amber-500 text-black rounded-lg">
+                        <a href="/dashboard" className="block w-full text-center px-4 py-2 text-sm font-semibold bg-sky-300 text-slate-950 rounded-lg">
                             Get Started
                         </a>
                     </div>
