@@ -1,5 +1,4 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 
 interface FadeInProps {
     children: React.ReactNode;
@@ -39,10 +38,13 @@ export function FadeIn({
 
     return (
         <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            variants={variants}
+            initial={initial}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{
+                duration,
+                delay,
+                ease: [0.25, 0.4, 0.25, 1] as const,
+            }}
             className={`w-full ${className}`}
         >
             {children}
