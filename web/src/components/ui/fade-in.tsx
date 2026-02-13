@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 interface FadeInProps {
@@ -16,6 +16,8 @@ export function FadeIn({
     direction = 'up',
     className = ''
 }: FadeInProps) {
+    const prefersReducedMotion = useReducedMotion();
+
     const initialAnimation = direction === 'none'
         ? { opacity: 1, y: 0, x: 0 }
         : {
@@ -26,11 +28,11 @@ export function FadeIn({
 
     return (
         <motion.div
-            initial={initialAnimation}
+            initial={prefersReducedMotion ? { opacity: 1, x: 0, y: 0 } : initialAnimation}
             animate={{ opacity: 1, x: 0, y: 0 }}
             transition={{
-                duration,
-                delay,
+                duration: prefersReducedMotion ? 0 : duration,
+                delay: prefersReducedMotion ? 0 : delay,
                 ease: [0.25, 0.4, 0.25, 1] as const,
             }}
             className={`w-full ${className}`}

@@ -65,8 +65,8 @@ export function Hero() {
                         </div>
                     </div>
 
-                    <div className="relative hidden lg:flex justify-end w-full">
-                        <div className="relative w-full max-w-2xl rounded-3xl border border-slate-300/20 bg-slate-950/80 backdrop-blur-xl p-1.5 shadow-2xl shadow-sky-500/10">
+                    <div className="relative hidden lg:flex justify-end w-full lg:min-h-[420px]">
+                        <div className="relative w-full max-w-2xl rounded-3xl border border-slate-300/20 bg-slate-950/80 backdrop-blur-xl p-1.5 shadow-2xl shadow-sky-500/10 self-center">
                             <div className="rounded-2xl overflow-hidden bg-[#020617]">
                                 <div className="p-5 font-mono text-xs leading-relaxed overflow-x-auto text-slate-200">
                                     <div className="flex items-center gap-2 mb-4 border-b border-slate-500/20 pb-3">
