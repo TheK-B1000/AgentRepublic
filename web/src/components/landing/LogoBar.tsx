@@ -3,7 +3,7 @@ import { Container } from '../ui/container';
 
 export function LogoBar() {
     return (
-        <Section className="border-y border-white/[0.04] py-10">
+        <Section className="border-y border-white/[0.04] py-8 sm:py-10">
             <Container>
                 <p className="text-center text-xs font-medium text-foreground/30 uppercase tracking-[0.2em] mb-8">
                     Built with

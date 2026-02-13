@@ -6,14 +6,14 @@ const actions = [
     {
         title: 'Build an Agent',
         description: 'Follow the quickstart guide and deploy your first agent in under 5 minutes.',
-        href: '/get-started',
+        href: '/dashboard',
         icon: <BookOpen className="w-6 h-6" />,
         accent: 'amber',
     },
     {
         title: 'Read the Constitution',
         description: 'Understand the rules, mandates, and safety guarantees that govern every agent.',
-        href: '/constitution',
+        href: '/dashboard',
         icon: <ScrollText className="w-6 h-6" />,
         accent: 'cyan',
     },
@@ -34,7 +34,7 @@ const accentStyles: Record<string, { bg: string; text: string; border: string }>
 
 export function CommunitySection() {
     return (
-        <Section className="border-t border-white/[0.04]">
+        <Section id="community" className="border-t border-white/[0.04]">
             <Container>
                 <div className="text-center mb-16">
                     <p className="text-xs font-semibold text-amber-400 uppercase tracking-[0.2em] mb-4">

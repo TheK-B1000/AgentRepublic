@@ -34,7 +34,7 @@ const news = [
 
 export function NewsCards() {
     return (
-        <Section className="relative overflow-hidden">
+        <Section id="news" className="relative overflow-hidden">
             {/* Background Ambience */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
 
