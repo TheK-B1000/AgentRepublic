@@ -4,7 +4,7 @@ import { Section } from '../ui/section';
 
 export function Hero() {
     return (
-        <Section className="pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20">
+        <Section className="pt-28 pb-14 lg:pt-40 lg:pb-24">
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-12 left-[12%] w-[32rem] h-[32rem] bg-sky-400/15 rounded-full blur-[140px]" />
                 <div className="absolute top-20 right-[5%] w-[24rem] h-[24rem] bg-indigo-400/20 rounded-full blur-[120px]" />
