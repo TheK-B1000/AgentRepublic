@@ -14,10 +14,11 @@ import { FadeIn } from '../components/ui/fade-in';
 
 export function LandingPage() {
     return (
-        <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+        <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
+            <div className="pointer-events-none absolute inset-0 -z-10 opacity-70 [background:radial-gradient(circle_at_20%_10%,rgba(56,189,248,0.16),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(129,140,248,0.14),transparent_26%)]" />
             <AnnouncementBar />
             <Navbar />
-            <main className="w-full flex flex-col">
+            <main className="w-full flex flex-col relative z-10">
                 <FadeIn direction="none" duration={0.8}>
                     <Hero />
                 </FadeIn>
