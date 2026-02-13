@@ -9,12 +9,17 @@ interface FadeInProps {
     className?: string;
 }
 
+/**
+ * Fade/slide in wrapper with optional direction.
+ * - Respects prefers-reduced-motion.
+ * - direction="none" still fades (no slide).
+ */
 export function FadeIn({
-    children,
-    delay = 0,
-    duration = 0.5,
-    direction = 'up',
-    className = ''
+  children,
+  delay = 0,
+  duration = 0.5,
+  direction = 'up',
+  className = '',
 }: FadeInProps) {
     const prefersReducedMotion = useReducedMotion();
 

@@ -105,7 +105,11 @@ export function Hero() {
                         </div>
                     </div>
                 </div>
-            </Container>
-        </Section>
-    );
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
 }
