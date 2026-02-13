@@ -5,35 +5,35 @@ const columns = [
     {
         title: 'Discover',
         links: [
-            { label: 'About', href: '/about' },
-            { label: 'Charter', href: '/charter' },
-            { label: 'Architecture', href: '/architecture' },
-            { label: 'Roadmap', href: '/roadmap' },
+            { label: 'About', href: '#features' },
+            { label: 'Charter', href: '#districts' },
+            { label: 'Architecture', href: '#architecture' },
+            { label: 'Roadmap', href: '#news' },
         ],
     },
     {
         title: 'Build',
         links: [
-            { label: 'Get Started', href: '/get-started' },
-            { label: 'Documentation', href: '/docs' },
-            { label: 'Agent Templates', href: '/templates' },
-            { label: 'MCP Contracts', href: '/mcp' },
+            { label: 'Get Started', href: '/dashboard' },
+            { label: 'Documentation', href: '/traces' },
+            { label: 'Agent Templates', href: '/demo' },
+            { label: 'MCP Contracts', href: '/demo' },
         ],
     },
     {
         title: 'Govern',
         links: [
-            { label: 'Constitution', href: '/constitution' },
-            { label: 'Districts', href: '/districts' },
-            { label: 'Eval Framework', href: '/evals' },
-            { label: 'Security', href: '/security' },
+            { label: 'Constitution', href: '/dashboard' },
+            { label: 'Districts', href: '#districts' },
+            { label: 'Eval Framework', href: '/traces' },
+            { label: 'Security', href: '/dashboard' },
         ],
     },
     {
         title: 'Community',
         links: [
-            { label: 'Changelog', href: '/changelog' },
-            { label: 'Contributing', href: '/contributing' },
+            { label: 'Changelog', href: '#news' },
+            { label: 'Contributing', href: '#community' },
             { label: 'Discussion', href: 'https://github.com/TheK-B1000/AgentRepublic/discussions' },
         ],
     },
@@ -65,7 +65,7 @@ export function Footer() {
                                 <Github className="w-5 h-5" />
                             </a>
                             <a
-                                href="#"
+                                href="https://github.com/TheK-B1000/AgentRepublic/discussions"
                                 className="text-foreground/30 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-lg"
                             >
                                 <MessageSquare className="w-5 h-5" />
@@ -101,9 +101,9 @@ export function Footer() {
                         © {new Date().getFullYear()} Agent Republic. All rights reserved.
                     </p>
                     <div className="flex items-center gap-8 text-xs text-foreground/30 font-medium">
-                        <a href="/privacy" className="hover:text-foreground/60 transition-colors">Privacy Policy</a>
-                        <a href="/terms" className="hover:text-foreground/60 transition-colors">Terms of Service</a>
-                        <a href="/status" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                        <a href="#" className="hover:text-foreground/60 transition-colors">Privacy Policy</a>
+                        <a href="#" className="hover:text-foreground/60 transition-colors">Terms of Service</a>
+                        <a href="#" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                             Systems Nominal
                         </a>

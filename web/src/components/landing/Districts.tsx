@@ -92,7 +92,7 @@ export function Districts() {
     const d = districts[active];
 
     return (
-        <Section className="border-t border-white/[0.04]">
+        <Section id="districts" className="border-t border-white/[0.04]">
             <Container>
                 {/* Section Header */}
                 <div className="text-center mb-16">
